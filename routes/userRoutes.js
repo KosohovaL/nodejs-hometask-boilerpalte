@@ -29,7 +29,7 @@ router.post('/', createUserValid, responseMiddleware, errorJson, (req, res) => {
     }
 });
 
-router.put('/:id', searchUserId, responseMiddleware, errorJson, (req, res) => {
+router.put('/:id', updateUserValid, responseMiddleware, errorJson, (req, res) => {
     try {
         res.json(UserService.update(req.params.id, req.body))
     } catch (e) {

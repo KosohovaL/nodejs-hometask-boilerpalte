@@ -31,7 +31,7 @@ router.post('/', createFighterValid, responseMiddleware, errorJson, (req, res) =
     }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', updateFighterValid, responseMiddleware, errorJson, (req, res) => {
     try {
         res.json(FighterService.update(req.params.id, req.body))
     } catch (e) {

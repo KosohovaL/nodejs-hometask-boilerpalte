@@ -1,6 +1,5 @@
 const responseMiddleware = (req, res, next) => {
     // TODO: Implement middleware that returns result of the query
-
     const initialResJson = res.json;
 
     res.json = function (data) {
@@ -14,9 +13,9 @@ const responseMiddleware = (req, res, next) => {
     };
 
     if (res.statusCode !== 200) {
-        next(new Error('Some http error status'))
+        return next(new Error('Some http error status'))
     } else {
-        next();
+        return next();
     }
 }
 
